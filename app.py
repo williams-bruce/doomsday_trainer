@@ -1,10 +1,12 @@
 import doomsday
 import sys
+import os
 from random_date_generator import generate_date
 from utils import pick_day
 from time import time, sleep
 from beautifultable import BeautifulTable
 from termcolor import colored
+from statistics import mean
 
 
 class DoomsdayApp:
@@ -17,10 +19,10 @@ class DoomsdayApp:
     
     
     def run(self):
-        print('''
-              Bem vindo ao doomsday trainer!
-              Para cada data fornecida, digite o digito do dia da semana a quer se referencia a data.
-              O treinador continua indefinidamente até que o usuário digite <exit>.''')
+        os.system('cls')
+        print('Bem vindo ao doomsday trainer!\n'+
+              'Para cada data fornecida, digite o digito do dia da semana a que se referencia a data.\n'+
+              'O treinador continua indefinidamente até que o usuário digite <exit>.')
         while True:
             escolha = input('Pronto para começar? (S/n): ')
             match(escolha):
@@ -33,15 +35,15 @@ class DoomsdayApp:
                     print('Trainer interrompido pelo usuário')
                     sys.exit(0)
                 case 's':
-                    print('\n'*50)
+                    os.system('cls')
                     self.contador += 1
                     break
                 case 'S':
-                    print('\n'*50)
+                    os.system('cls')
                     self.contador += 1
                     break
                 case '':
-                    print('\n'*50)
+                    os.system('cls')
                     self.contador += 1
                     break
                 case _:
@@ -77,7 +79,7 @@ class DoomsdayApp:
                 self.tempos.append(tempo_decorrido)
                 self.contador += 1
                 sleep(5)
-                print('\n'*50)
+                os.system('cls')
         
         except KeyboardInterrupt:
             self.contador -= 1
@@ -93,11 +95,13 @@ class DoomsdayApp:
             else:
                 table.rows.append([self.datas[i], self.escolhas[i][0], colored(self.escolhas[i][1],'red'), self.tempos[i]])
         table.rows.header = [str(i+1) for i in range(len(self.acertos))]
-        print('\n'*100)
+        os.system('cls')
+        print('\n*****************     SEU RELATÓRIO DE TREINO     *****************\n')
         print(table)
         print(f'Vc treinou com {self.contador} datas.')
         print(f'Vc acertou {self.acertos.count(True)} datas.')
         print(f'Vc errou {self.acertos.count(False)} datas.')
+        print(f'Sua média de tempo: {mean(self.tempos):.2f} s.')
         
 
 
