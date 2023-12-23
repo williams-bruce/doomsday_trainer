@@ -16,8 +16,8 @@ class DoomsdayApp:
         self.datas: list[str] = []
         self.tempos: list[float] = []
         self.escolhas: list[tuple[str,str]] = []
-    
-    
+
+
     def run(self):
         os.system('cls')
         print('Bem vindo ao doomsday trainer!\n'+
@@ -102,4 +102,5 @@ class DoomsdayApp:
         print(f'Vc acertou {self.acertos.count(True)} datas.')
         print(f'Vc errou {self.acertos.count(False)} datas.')
         print(f'Sua média de tempo: {mean(self.tempos):.2f} s.')
+        print(f'Sua precisão foi de {100*(self.acertos.count(True))/self.contador}%.')
         

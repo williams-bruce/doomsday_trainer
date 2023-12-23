@@ -29,15 +29,14 @@ def doomsday(date:str)->str:
     week_day: int = 0
     if is_leap_year(int(year)):
         day_in_month: int = DAYS_LEAP_YEAR[month - 1]
-        dif: int = int(day) - day_in_month
-        week_day = (year_day + dif) % 7
     else:
         day_in_month: int = DAYS_YEAR[month - 1]
-        dif: int = int(day) - day_in_month
-        week_day = (year_day + dif) % 7
-    
+        
+    dif: int = int(day) - day_in_month
+    week_day = (year_day + dif) % 7
+
     return DAYS_NAMES[week_day]
-    
+
 
 
 if __name__ == '__main__':
