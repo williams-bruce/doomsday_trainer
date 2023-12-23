@@ -1,6 +1,6 @@
 from utils import is_even, is_leap_year, digest_date
 
-data_teste:str = '02/04/1507'
+data_teste:str = '16/02/1996'
 
 CENTURY_DAYS: tuple[int] = (3,1,6,4)
 DAYS_YEAR: tuple[int] = (3,28,0,4,9,6,11,8,5,10,7,12)
@@ -29,7 +29,7 @@ def doomsday(date:str)->str:
     week_day: int = 0
     if is_leap_year(int(year)):
         day_in_month: int = DAYS_LEAP_YEAR[month - 1]
-        dif: int = abs(int(day) - day_in_month)
+        dif: int = int(day) - day_in_month
         week_day = (year_day + dif) % 7
     else:
         day_in_month: int = DAYS_YEAR[month - 1]
