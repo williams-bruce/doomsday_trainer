@@ -25,7 +25,7 @@ def generate_date()->str:
     data = data.strftime('%d/%m/%Y')
     
     return data
-        
+
 if __name__ == '__main__':
     print(generate_date())
     print(generate_date())

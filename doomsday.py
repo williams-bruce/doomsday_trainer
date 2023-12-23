@@ -4,7 +4,7 @@ data_teste:str = '02/04/1507'
 
 CENTURY_DAYS: tuple[int] = (3,1,6,4)
 DAYS_YEAR: tuple[int] = (3,28,0,4,9,6,11,8,5,10,7,12)
-DAYS_YEAR_LEAP: tuple[int] = (4,29,0,4,9,6,11,8,5,10,7,12)
+DAYS_LEAP_YEAR: tuple[int] = (4,29,0,4,9,6,11,8,5,10,7,12)
 DAYS_NAMES: tuple[str] = ('Saturday','Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday')
 
 def doomsday(date:str)->str:
@@ -28,7 +28,7 @@ def doomsday(date:str)->str:
     month: int = int(month)
     week_day: int = 0
     if is_leap_year(int(year)):
-        day_in_month: int = DAYS_YEAR_LEAP[month - 1]
+        day_in_month: int = DAYS_LEAP_YEAR[month - 1]
         dif: int = abs(int(day) - day_in_month)
         week_day = (year_day + dif) % 7
     else:
